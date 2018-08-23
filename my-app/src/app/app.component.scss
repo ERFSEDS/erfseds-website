@@ -1,3 +1,14 @@
+/* Colors */
+
+$color-main: #1794ab;
+$color-main-accent: #1a648e;
+$color-error: #ff6666;
+$color-error-accent: #ffb366;
+$color-white: #e2e8e9;
+$color-black: #093c45;
+
+/* Navigation Bar */
+
 .navbar {
     text-transform: uppercase;
     text-align: center;
@@ -5,25 +16,137 @@
     font-size: 14px;
     color: white;
     position: fixed;
+    height: 60px;
+    transition: .6s;
+    
 
     i {
         margin-left: 5px;
     }
 
     .navlink {
-        padding: 20px;
+        top: 6px;
+        line-height:48px;
         display: inline-block;
+        position:relative;
+        cursor: pointer;
+        transition: .6s;
+        background-color: transparent;
+
+        &.link {
+            margin: 0px 15px 0px 15px;
+        }
+    }
+
+    &.off {
+        height: 0;
+        margin-top: -1px;
+    }
+
+    &.on {
+        height: 60px;
+        margin-top: 0px;
+    }
+
+    &.white {
+        background-color: #fff;
+        color: #666;
+        box-shadow: 0px 0px 20px rgba(0,0,0,.2);
     }
 }
 
-.navbar.white {
-    background-color: #fff;
-    color: #666;
-    box-shadow: 0px 0px 20px rgba(0,0,0,.2);
+/* Dropdown */
+
+.navlink.dropdown-cont {
+    height: 48px;
+    margin: 0px 5px 0px 5px;
+
+    .dropdown-bg {
+        background-image: linear-gradient(to right, $color-main, $color-main-accent);
+        position: absolute;
+        opacity: 0;
+        transition: .6s;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
 }
 
-
-
-.navlink:hover {
-    background-color: black;
+.dropdown {
+    position:relative;
+    border-bottom: none;
+    width: 100%;
+    padding:  0px 20px 0px 20px;
+    transition: .6s;
 }
+
+ul.dropdown {
+    top: 54px;
+    left: 0;
+    color: $color-main;
+    right: 0;
+    max-height: 0px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    padding: 0;
+    list-style-type:none;
+    background-color: transparent;
+    margin: 0;
+    transition: .6s;
+
+    li {
+        padding: 0px 20px 0px 20px;
+        text-transform: capitalize;
+        font-weight: normal;
+        color: white;
+        font-size: 14px;
+        transition: .3s;
+    }
+}
+
+.navlink.dropdown-cont:hover {
+    .dropdown {
+        border-bottom: none;
+        color: white;
+    }
+
+    .dropdown-bg {
+        opacity: 1;
+    }
+}
+
+.navlink.dropdown-cont.true {
+
+    .dropdown-bg {
+        opacity: 1;
+    }
+
+    .dropdown {
+        z-index: 1;
+        border-bottom: none;
+        color: white;
+    }
+
+    ul.dropdown {
+        left: 0;
+        max-height: 100vh;
+        color: $color-main;
+        right: 0;
+        position: absolute;
+        text-align: left;
+        padding: 0;
+        list-style-type:none;
+        margin: 0;
+
+        li:hover {
+            box-shadow: 0px 0px 20px rgba(0,0,0,.3);
+            z-index: 99;
+        }
+    }   
+
+}
+
+/* https://stackoverflow.com/questions/35712379/how-can-i-close-a-dropdown-on-click-outside */

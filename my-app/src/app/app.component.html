@@ -1,13 +1,32 @@
-<div class="container-fluid center">
+<div class="container-fluid center nopadding">
   <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 navbar {{sidebar}}">
-      <div class="navlink">ABOUT</div>
-      <div class="navlink">ABOUT</div>
-      <div class="navlink">ABOUT <i class="fas fa-chevron-down"></i></div>
-      <div class="navlink">ABOUT</div>
-      <div class="navlink">ABOUT</div>
+    <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar white">
+      <div class="navlink link">ABOUT</div>
+      <div (click)="toggleDropdown()" class="dropdown-cont navlink {{dropdown}}">
+        <div class="dropdown title">
+            <div class="dropdown-bg"></div>
+            ABOUT <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown">
+          <li><div class="dropdown-bg"></div>Coffee</li>
+          <li><div class="dropdown-bg"></div>Tea</li>
+          <li><div class="dropdown-bg"></div>Milk</li>
+        </ul>
+      </div>
+      <div class="navlink link">ABOUT</div>
+      <div class="navlink link">ABOUT</div>
     </div>
+    
+    <!-- <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar white {{sidebar}}">
+      <div class="navlink">ABOUT</div>
+      <div class="navlink">ABOUT</div>
+      <div class="navlink dropdown">ABOUT <i class="fas fa-chevron-down"></i></div>
+      <div class="navlink">ABOUT</div>
+      <div class="navlink">ABOUT</div>
+    </div> -->
+
   </div>
 </div>
 
 <app-home></app-home>
+

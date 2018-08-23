@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  sidebar = '';
+  sidebar = 'off';
   title = 'my-app';
+  dropdown = false;
 
   constructor() {
   
+  }
+
+  toggleDropdown() {
+    this.dropdown = !this.dropdown;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    if (window.pageYOffset > 500) {
+      this.sidebar = 'on';
+    } else {
+      this.sidebar = 'off';
+    }
   }
 
 }
