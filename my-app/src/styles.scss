@@ -9,8 +9,27 @@ $color-error-accent: #ffb366;
 $color-white: #e2e8e9;
 $color-black: #093c45;
 
+/* Fonts */
+
+@font-face {
+    font-family: Nunito;
+    src: url(./assets/fonts/NunitoSans/NunitoSans-Regular.ttf);
+    }
+
 body {
     margin: 0;
     background-color: #eee;
-    font-family: 'Arial';
+    font-family: 'Nunito';
+}
+
+@media (max-width: 480px) { /* Smaller devices */
+    .large {
+        display: none;
+    }
+}
+
+@media (min-width: 480px) { /* Large devices */
+    .small {
+        display: none;
+    }
 }

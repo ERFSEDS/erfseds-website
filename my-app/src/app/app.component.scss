@@ -8,7 +8,82 @@ $color-white: #e2e8e9;
 $color-black: #093c45;
 
 /* Navigation Bar */
+/* Thinner (mobile) Devices */
+.mobilenav {
+    position: fixed;
+    background-image: linear-gradient(to right, $color-main, $color-main-accent);   
+    color: white;
+    transition: 1.2s;
+    padding-top: 5vw;
+    padding-left: 5vw;
+    overflow: hidden;
 
+    li {opacity: 0}
+
+    i {font-size: 6vw}
+
+    &.false {
+        border-radius: 0vw 0vw 100% 0vw;
+        width: 20vw;
+        height: 20vw;
+
+        @keyframes fadeout {
+            from {opacity: 1}
+            to {opacity: 0}
+        }
+
+        li {
+            animation: fadeout 1.2s forwards;
+        }
+
+    }
+    &.true {
+        border-radius: 0vw 0vw 100% 0vw;
+        position: fixed;
+        width: 300vw;
+        height: 300vw;
+
+        @keyframes fadein {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        li {
+            animation: fadein 1.2s forwards;
+            &:nth-child(1) {animation-delay: .6s}
+            &:nth-child(2) {animation-delay: .7s}
+            &:nth-child(3) {animation-delay: .8s}
+            &:nth-child(4) {animation-delay: .9s}
+            &:nth-child(5) {animation-delay: 1s}
+            &:nth-child(6) {animation-delay: 1.1s}
+            &:nth-child(7) {animation-delay: 1.2s}
+            &:nth-child(8) {animation-delay: 1.3s}
+            &:nth-child(9) {animation-delay: 1.4s}   
+        }
+    }
+
+    .menu {
+        width: 100vw;
+        height: 100vh;
+        vertical-align: middle;
+        position: absolute;
+        top:0;
+        left: 0;
+        text-align: center;
+        font-size: 5vw;
+        padding: 70px;
+        z-index: -1;
+
+        ul {
+            padding: 0;
+            list-style-type:none;
+            li {transition: .6s; margin: 10px 0px 10px 0px}
+        }
+    }
+}
+
+
+/* Wider Devices */
 .navbar {
     text-transform: uppercase;
     text-align: center;
@@ -18,7 +93,6 @@ $color-black: #093c45;
     position: fixed;
     height: 60px;
     transition: .6s;
-    
 
     i {
         margin-left: 5px;
@@ -38,9 +112,13 @@ $color-black: #093c45;
         }
     }
 
+    &.no-overflow {overflow: hidden} /* So we don't see the text from the overlaying navbar until the transition is finished */
+    &.overflow {overflow: show}
+
     &.off {
         height: 0;
         margin-top: -1px;
+        pointer-events: none;
     }
 
     &.on {
@@ -51,12 +129,12 @@ $color-black: #093c45;
     &.white {
         background-color: #fff;
         color: #666;
-        box-shadow: 0px 0px 20px rgba(0,0,0,.2);
+        /* box-shadow: 0px 0px 20px rgba(0,0,0,.2); */
     }
 }
 
 /* Dropdown */
-
+/* Default Conditions */
 .navlink.dropdown-cont {
     height: 48px;
     margin: 0px 5px 0px 5px;
@@ -64,7 +142,6 @@ $color-black: #093c45;
     .dropdown-bg {
         background-image: linear-gradient(to right, $color-main, $color-main-accent);
         position: absolute;
-        opacity: 0;
         transition: .6s;
         left: 0;
         right: 0;
@@ -72,40 +149,42 @@ $color-black: #093c45;
         bottom: 0;
         z-index: -1;
     }
-}
 
-.dropdown {
-    position:relative;
-    border-bottom: none;
-    width: 100%;
-    padding:  0px 20px 0px 20px;
-    transition: .6s;
-}
+    .dropdown.title {
+        padding:  0px 20px 0px 20px;
+        transition: .6s;
 
-ul.dropdown {
-    top: 54px;
-    left: 0;
-    color: $color-main;
-    right: 0;
-    max-height: 0px;
-    overflow: hidden;
-    position: absolute;
-    text-align: left;
-    padding: 0;
-    list-style-type:none;
-    background-color: transparent;
-    margin: 0;
-    transition: .6s;
+        .dropdown-bg { /* dropdown-bg for dropdown title (the navlink) only appears on hover */
+            opacity: 0;
+        }
+    }
 
-    li {
-        padding: 0px 20px 0px 20px;
-        text-transform: capitalize;
-        font-weight: normal;
-        color: white;
-        font-size: 14px;
-        transition: .3s;
+    ul.dropdown {
+        top: 54px;
+        left: 0;
+        right: 0;
+        max-height: 0px;
+        overflow: hidden;
+        position: absolute;
+        text-align: left;
+        padding: 0;
+        list-style-type:none;
+        background-color: transparent;
+        margin: 0;
+        transition: .6s;
+    
+        li {
+            padding: 0px 20px 0px 20px;
+            text-transform: capitalize;
+            font-weight: normal;
+            color: white;
+            font-size: 14px;
+            transition: .3s;
+        }
     }
 }
+
+/* Hover effects */
 
 .navlink.dropdown-cont:hover {
     .dropdown {
@@ -113,14 +192,26 @@ ul.dropdown {
         color: white;
     }
 
-    .dropdown-bg {
+    .dropdown.title .dropdown-bg {
         opacity: 1;
     }
 }
 
+/* Makes it so the title won't return to default until the menu is collapsed */
+.navlink.dropdown-cont {
+    .dropdown.title.false {
+        transition-delay: .6s;
+        .dropdown-bg {
+            transition-delay: .6s;
+        }
+    }
+}
+
+/* Appearance when dropdown is opened */
+
 .navlink.dropdown-cont.true {
 
-    .dropdown-bg {
+    .dropdown.title .dropdown-bg {
         opacity: 1;
     }
 
@@ -146,7 +237,4 @@ ul.dropdown {
             z-index: 99;
         }
     }   
-
 }
-
-/* https://stackoverflow.com/questions/35712379/how-can-i-close-a-dropdown-on-click-outside */

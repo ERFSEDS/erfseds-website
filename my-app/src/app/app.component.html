@@ -1,32 +1,66 @@
-<div class="container-fluid center nopadding">
+<!-- Navigation -->
+<!-- Larger Devices & Views -->
+<div class="container-fluid center nopadding large">
   <div class="row">
-    <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar white">
+    <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar">
       <div class="navlink link">ABOUT</div>
-      <div (click)="toggleDropdown()" class="dropdown-cont navlink {{dropdown}}">
-        <div class="dropdown title">
+      <div #dropdowncont1 class="dropdown-cont navlink {{dropdown}}">
+        <div class="dropdown title {{titlebox}}" (click)="toggleDropdown()">
             <div class="dropdown-bg"></div>
-            ABOUT <i class="fas fa-chevron-down"></i>
+            ABOUT
+            <i class="fas fa-chevron-down"></i>
         </div>
-        <ul class="dropdown">
-          <li><div class="dropdown-bg"></div>Coffee</li>
-          <li><div class="dropdown-bg"></div>Tea</li>
-          <li><div class="dropdown-bg"></div>Milk</li>
+        <ul class="dropdown" _eref>
+          <li class="dropdownlink"><div class="dropdown-bg"></div>Coffee</li>
+          <li class="dropdownlink" ><div class="dropdown-bg"></div>Tea</li>
+          <li class="dropdownlink"><div class="dropdown-bg"></div>Milk</li>
         </ul>
       </div>
       <div class="navlink link">ABOUT</div>
       <div class="navlink link">ABOUT</div>
     </div>
     
-    <!-- <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar white {{sidebar}}">
-      <div class="navlink">ABOUT</div>
-      <div class="navlink">ABOUT</div>
-      <div class="navlink dropdown">ABOUT <i class="fas fa-chevron-down"></i></div>
-      <div class="navlink">ABOUT</div>
-      <div class="navlink">ABOUT</div>
-    </div> -->
+    <div navbar class="col-lg-12 col-md-12 col-sm-12 navbar white {{overflow}} {{sidebar}}">
+      <div class="navlink link">ABOUT</div>
+      <div #dropdowncont2 class="dropdown-cont navlink {{dropdown}}">
+        <div class="dropdown title {{titlebox}}" (click)="toggleDropdown()">
+            <div class="dropdown-bg"></div>
+            ABOUT
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown" _eref>
+          <li class="dropdownlink"><div class="dropdown-bg"></div>Coffee</li>
+          <li class="dropdownlink" ><div class="dropdown-bg"></div>Tea</li>
+          <li class="dropdownlink"><div class="dropdown-bg"></div>Milk</li>
+        </ul>
+      </div>
+      <div class="navlink link">ABOUT</div>
+      <div class="navlink link">ABOUT</div>
+    </div>
 
   </div>
 </div>
 
+<!-- Smaller Devices & Views -->
+
+<div class="mobilenav {{mobileOpen}} small">
+    <i class="fas fa-bars" (click)="toggleMobileNav()"></i>
+    <div class="menu">
+      <ul id="everything">
+        <li><h2>About</h2></li> 
+        <li><h2>Projects</h2></li>
+        <li>Pathfinder</li>
+        <li>Pathfinder</li>
+        <li>Pathfinder</li>
+        <li>Pathfinder</li>
+        <li><h2>Team</h2></li>
+        <li><h2>Media</h2></li>
+        <li><h2>Donate</h2></li>
+      </ul>
+    </div>
+</div>
+
 <app-home></app-home>
+
+
 
