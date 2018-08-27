@@ -93,6 +93,7 @@ $color-black: #093c45;
     position: fixed;
     height: 60px;
     transition: .6s;
+    z-index: 99;
 
     i {
         margin-left: 5px;

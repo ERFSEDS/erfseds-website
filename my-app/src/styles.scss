@@ -9,6 +9,47 @@ $color-error-accent: #ffb366;
 $color-white: #e2e8e9;
 $color-black: #093c45;
 
+/* Easy Fill */
+.black {
+    background-color: black;
+}
+
+.grey {
+    background-color: grey;
+}
+
+/* Building */
+
+.section {
+
+    &.full {
+        height: 100vh;
+    }
+    &.half {
+        height: 50vh;
+    }
+
+    &.padding {
+       display: table;
+    }
+
+    .content {
+        display: table-cell;
+        vertical-align: center;
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+        h1 {
+            font-size: 48px;
+            color: $color-white;
+            display: inline;
+            border-bottom: 2px solid $color-main;
+        }
+    }
+}
+
 /* Fonts */
 
 @font-face {
@@ -20,6 +61,7 @@ body {
     margin: 0;
     background-color: #eee;
     font-family: 'Nunito';
+    
 }
 
 @media (max-width: 480px) { /* Smaller devices */

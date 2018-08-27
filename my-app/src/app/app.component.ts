@@ -45,14 +45,14 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (window.pageYOffset > 500) {
+    if (window.pageYOffset > 300) {
       this.sidebar = 'on';
       setTimeout( ()=> {
-        if (window.pageYOffset > 500) {
+        if (window.pageYOffset > 300) {
           this.overflow = 'overflow'
         }
       }, 600)
-    } else if (window.pageYOffset <= 500) {
+    } else if (window.pageYOffset <= 300) {
       this.sidebar = 'off';
       this.overflow = 'no-overflow';
     }
