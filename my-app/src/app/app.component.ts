@@ -15,7 +15,7 @@ export class AppComponent {
   index = 0;
   titlebox = true;
   overflow = 'no-overflow'
-  mobileOpen = true;
+  mobileOpen = false;
 
   constructor(private _eref: ElementRef) {
     document.addEventListener('click', this.offClickHandler.bind(this));

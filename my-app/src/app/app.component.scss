@@ -13,9 +13,11 @@ $color-black: #093c45;
     position: fixed;
     background-image: linear-gradient(to right, $color-main, $color-main-accent);   
     color: white;
+    background-color: red;
     transition: 1.2s;
     padding-top: 5vw;
     padding-left: 5vw;
+    z-index: 99999;
     overflow: hidden;
 
     li {opacity: 0}
@@ -40,8 +42,8 @@ $color-black: #093c45;
     &.true {
         border-radius: 0vw 0vw 100% 0vw;
         position: fixed;
-        width: 300vw;
-        height: 300vw;
+        width: 400vw;
+        height: 400vw;
 
         @keyframes fadein {
             from {opacity: 0}

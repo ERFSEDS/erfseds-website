@@ -1,0 +1,24 @@
+<!-- Desktop View -->
+<div style="margin: 15px" class="large">
+  <div class="row padding-30" style="overflow: hidden; background-image:url(./../../../assets/projectheaders/pathfinder.JPG)">
+    <div class="bg"></div>
+    <div class="dark"></div>
+    <div class="col  snippets">
+      <h1>{{projects[1].name}}</h1> 
+      <table>
+        <tr *ngFor="let tags of projects[1].tags; let index = index">
+          <td>
+            {{projects[1].tags[index]}}
+          </td>
+          <td class="icon">
+            <i class="fas fa-{{projects[1].icons[index]}}"></i>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-12 desc">
+      {{projects[1].description}}<br>
+      <a href="/{{projects[1].name}}">Learn more...</a>
+    </div>
+  </div>
+</div>

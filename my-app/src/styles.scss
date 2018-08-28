@@ -20,34 +20,63 @@ $color-black: #093c45;
 
 /* Building */
 
-.section {
+.row {
 
-    &.full {
-        height: 100vh;
-    }
-    &.half {
-        height: 50vh;
+    .col.margin {
+        padding: 0px 40px 0px 40px;
     }
 
-    &.padding {
-       display: table;
-    }
+    .col.vert-align {
+        display: table;
+        height: 100%;
 
-    .content {
-        display: table-cell;
-        vertical-align: center;
-    }
-
-    .title {
-        width: 100%;
-        text-align: center;
-        h1 {
-            font-size: 48px;
-            color: $color-white;
-            display: inline;
-            border-bottom: 2px solid $color-main;
+        .content.vert-align {
+            display: table-cell;
+            vertical-align: middle;
+            &.center {
+                text-align: center;
+            }
         }
     }
+
+    @media (min-width: 768px) {
+        &.full {height: 100vh;}
+    }
+    @media (max-width: 768px) {
+        &.full {height: 25vh;}
+    }
+
+    &.half {height: 50vh;}
+    &.third {height: 30vh}
+
+    &.padding {
+       padding: 50px;
+    }
+
+    &.padding-30 {
+        padding: 30px;
+    }
+}
+
+/* Styling */
+.font-white {
+    color: white;
+}
+
+/* Assets */
+
+.title {
+    h1 {
+        @media (min-width: 768px) {font-size: 48px;}
+        @media (max-width: 768px) {font-size: 28px;}
+        display: inline;
+        border-bottom: 4px solid $color-main;
+    }
+}
+
+.description {
+    font-size: 16px;
+    margin:  30px 0px 0px 0px;
 }
 
 /* Fonts */
@@ -57,20 +86,25 @@ $color-black: #093c45;
     src: url(./assets/fonts/NunitoSans/NunitoSans-Regular.ttf);
     }
 
+@font-face {
+    font-family: Open;
+    src: url(./assets/fonts/OpenSans/IstokWeb-Regular.ttf);
+    }
+
 body {
     margin: 0;
     background-color: #eee;
     font-family: 'Nunito';
-    
+    overflow-x: hidden;
 }
 
-@media (max-width: 480px) { /* Smaller devices */
+@media (max-width: 768px) { /* Smaller devices */
     .large {
         display: none;
     }
 }
 
-@media (min-width: 480px) { /* Large devices */
+@media (min-width: 768px) { /* Large devices */
     .small {
         display: none;
     }

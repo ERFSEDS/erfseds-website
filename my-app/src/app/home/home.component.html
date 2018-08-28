@@ -1,11 +1,36 @@
-<div class="section full grey">
+<div class="row full grey">
     <div class="logo"></div>
 </div>
 
-<div class="section half black padding">
-    <div class="content">
-        <div class="title">
-            <h1>About</h1>
+<!-- About -->
+<div class="row black justify-content-md-center" style="padding: 125px 0 125px 0">
+    <div class="col vert-align col-lg-6 col-md-8 col-sm-12">
+        <div class="content vert-align center font-white">
+            <div class="title">
+                <h1>About</h1>
+            </div>
+            <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas leo at semper mattis. Cras nulla arcu, consequat eget convallis vitae, maximus in orci. Vivamus fermentum molestie vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut quis ex a ligula fermentum ornare nec eu nisl. Cras nec nibh facilisis, cursus odio nec, vehicula diam. Aliquam hendrerit magna at metus finibus aliquet. Cras vitae lobortis sapien. Fusce sed dui fringilla, pharetra felis et, fermentum nibh. Mauris ligula orci, ultricies sit amet pulvinar pharetra, volutpat nec tellus.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Projects -->
+<div class="row third justify-content-md-center" style="background-color: #1c2c2d">
+    <div class="col vert-align col-lg-8 col-md-12 col-sm-12">
+        <div class="content vert-align center font-white">
+            <div class="title">
+                <h1>Current Projects</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row outer justify-content-md-center black">
+    <div class="row justify-content-md-center black" style="max-width: 1800px">
+        <div *ngFor="let project of projects" class="col col-lg-6 col-md-12 col-sm-12 project" style="max-width: 600px">
+            <app-project-card></app-project-card>
         </div>
     </div>
 </div>

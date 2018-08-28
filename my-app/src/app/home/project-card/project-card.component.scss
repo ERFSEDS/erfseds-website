@@ -1,0 +1,109 @@
+* {
+    color: white;
+}
+
+/* Colors */
+
+$color-main: #1794ab;
+$color-main-accent: #1a648e;
+$color-error: #ff6666;
+$color-error-accent: #ffb366;
+$color-white: #e2e8e9;
+$color-black: #093c45;
+
+.dark {
+    opacity: .2;
+    position: absolute;
+    transition: .6s;
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    bottom: 15px;
+    background-color: $color-main-accent;
+}
+
+.row {
+    overflow: hidden;
+    transition: .3s;
+    background-size: cover;
+    background-position: center;
+    &:hover {
+        tr, .desc {
+            opacity: 1;
+        }
+        .dark {
+            opacity: .8;
+            background-color: $color-black;
+        }
+        h1 {
+            font-size: 28px;
+            width: 100%;
+        }
+    }
+}
+
+/* Snippets Side */
+.snippets {
+    h1 {
+        font-size: 32px;
+        line-height: 32px;
+        transition: .6s;
+        width: 200%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        overflow: show;
+        text-align: left;
+        text-transform: uppercase;
+        padding: 0 20px 0 10px;
+        text-shadow: 0 0 10px black;
+    }
+
+    table {
+        padding: 0;
+        margin: 0;
+        margin-top: 60px;
+    }
+
+    tr {
+        &:nth-child(1) {transition-delay: 0s}
+        &:nth-child(2) {transition-delay: .2s}
+        &:nth-child(3) {transition-delay: .4s}
+        &:nth-child(4) {transition-delay: .6s}
+        &:nth-child(5) {transition-delay: .8s}
+
+        opacity: 0;
+        transition: 1.2s;
+        list-style: none;
+        padding:0;
+        text-align: right;
+        td {
+            padding: 5px 0px 5px 0px;
+            vertical-align: top;
+            &.icon {
+                text-align: center;
+            }
+            i {
+                margin: 0px 10px 0px 10px;
+                width:30px;
+                font-size: 18px;
+                float: right;
+            }
+        }
+    }
+}
+
+/* Description Side */
+.desc {
+    opacity: 0;
+    transition: .6s;
+    font-size: 12px;
+    border-left: solid 3px $color-main;
+    padding: 30px 20px 30px 20px;
+    a {
+        font-size: 14px;
+        text-decoration: underline;
+        color: white;
+    }
+}

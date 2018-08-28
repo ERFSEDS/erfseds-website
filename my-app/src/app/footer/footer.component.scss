@@ -1,0 +1,54 @@
+/* Colors */
+
+$color-main: #1794ab;
+$color-main-accent: #1a648e;
+$color-error: #ff6666;
+$color-error-accent: #ffb366;
+$color-white: #e2e8e9;
+$color-black: #093c45;
+
+
+* {
+    color: white;
+    font-family: 'Calibri';
+}
+
+a {
+    color: $color-main;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.row.inner {
+    padding: 40px;
+    background-color: #182627;
+    max-width: 1200px
+}
+
+.col {
+    .content {
+        padding: 10px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.bottom {
+    background-color: $color-main-accent;
+    padding: 35px;
+    text-align: center;
+    font-size: 12px;
+}
